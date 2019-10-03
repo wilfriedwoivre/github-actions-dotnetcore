@@ -15,3 +15,12 @@ jobs:
         dotnet-version: 3.0.100
     - name: Build with dotnet
       run: dotnet build --configuration Release
+    - name: Test with dotnet
+      run: dotnet test --configuration Release
+    - name: Package with dotnet
+      run: dotnet publish --configuration Release
+    - name: Publish artifact
+      uses: actions/upload-artifact@master
+      with:
+        name: webapp
+        path: bin/Release/netcoreapp3.0/publish
